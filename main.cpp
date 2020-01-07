@@ -102,7 +102,6 @@ long binarySearch(
 
 int totNumword;
 int numberOfWords;
-// *** Yuwei: function parameters also need to be documented.
 //reads the dictionary and enters strings depending on the string length
 void populateDict(vector <string> &dictionary,int lengthOfWordsToUse){
     
@@ -123,7 +122,6 @@ void populateDict(vector <string> &dictionary,int lengthOfWordsToUse){
     numberOfWords = 0;
     
     while(getline(inputFileStream, inputWord)){
-// *** Yuwei: Inconsistent indentations        
             totNumword++;
             if(inputWord.size() == lengthOfWordsToUse){
                 for(int k = 0; k < inputWord.size(); k++){
@@ -137,7 +135,6 @@ void populateDict(vector <string> &dictionary,int lengthOfWordsToUse){
     
 }
 
-// *** Yuwei: function parameters also need to be documented.
 //prints out the opening stats for the program
 void displayNum(vector <string> &dictionary,int lengthOfWordsToUse){
     vector<string> tempDict;
@@ -153,7 +150,6 @@ void displayNum(vector <string> &dictionary,int lengthOfWordsToUse){
     
 }
 
-// *** Yuwei: function parameters also need to be documented.
 // prints out the words from a selected index and prints out the end index that was also selected by the user.
 void displayContent(int start, int end, vector <string> &dictionary){
    for(int i = start; i <= end; i++){
@@ -161,8 +157,6 @@ void displayContent(int start, int end, vector <string> &dictionary){
    }
 }
 
-// *** Yuwei: use camelCase function names.
-// *** Yuwei: function parameters also need to be documented.
 // case 3 where user has an option to either pick a random word, exit the program or see if a the selected word is in the dictionary and the correct length
 // otherwise it will print an error and ask them to try again.
 // im running 2 do while loops for both words that can be entered by the user so it wont end until the conditions are met
@@ -171,7 +165,6 @@ void StrtnEnd(string &startWord, string &endWord, string preWord, string postWor
     
     isGood = false;
     isGood2 = false;
-// *** Yuwei: code for startWord and endWord can be merged     
     do{
         
             
@@ -202,22 +195,14 @@ void StrtnEnd(string &startWord, string &endWord, string preWord, string postWor
                 isGood = false;
               }
         }
-// *** Yuwei: Inconsistent indentations            
             if(preWord.length() != lengthOfWordsToUse && preWord != "r"){
                 cout << "*** '" << preWord << "' is not of length " << lengthOfWordsToUse << ". Please retry.\n";
                 isGood = false;
-              }
-// *** Yuwei: No more than one blank line between blocks        
-        
-
-            
+	    }
             
         
-    }while(isGood == false);
-// *** Yuwei: No more than one blank line between blocks    
-        
-    
-    do{
+    }while(isGood == false);        
+      do{
         
             
         cout << "Enter ending word, or 'r' for a random word: ";
@@ -245,7 +230,6 @@ void StrtnEnd(string &startWord, string &endWord, string preWord, string postWor
               }
             
         }
-// *** Yuwei: No more than one blank line between blocks
         
            
             if(postWord.length() != lengthOfWordsToUse && postWord != "r"){
@@ -260,7 +244,6 @@ void StrtnEnd(string &startWord, string &endWord, string preWord, string postWor
     }
 }
 
-// *** Yuwei: function parameters also need to be documented.
 //function created to see if any words entered by the user is exactly one letter different, if it isnt then itll increase counter. I used this function inside case 4.
 int checkDiff(string oneWord, string secWord){
     int counter = 0;
@@ -272,17 +255,13 @@ int checkDiff(string oneWord, string secWord){
     return counter;
 }
 
-// *** Yuwei: function parameters also need to be documented.
 //case 4 where the user has to start out with the startword dog and change one letter until they can get to cat. i implented my own function checkDiff
 //to see if the user entered string was exactly one letter different
 void checkWords(vector <string> &dictionary, string startWord, string endWord, string nextWord, string lastWord, int lengthOfWordsToUse){
     
     int numCount = 1;
-/ *** Yuwei: Use camelCase variable names.    
     bool Found = false;
-    bool inDict = false;
- // *** Yuwei: No more than one blank line between blocks  
-   
+    bool inDict = false;   
     
     do{
             
@@ -323,7 +302,6 @@ void checkWords(vector <string> &dictionary, string startWord, string endWord, s
             cout << "Congratulations, you did it!" << endl;
             break;
         }
-// *** Yuwei: Inconsistent indentations        
          else{
            startWord = nextWord;
          }
@@ -333,7 +311,6 @@ void checkWords(vector <string> &dictionary, string startWord, string endWord, s
                 
 }
 
-// *** Yuwei: function parameters also need to be documented.
 //I created a function to see if the word added to the new vector is in the vector already or not. If it is then itll return true otherwise false
 bool search4Word(string word, vector <string> words){
     for(int a = 0; a < words.size(); a++){
@@ -344,7 +321,6 @@ bool search4Word(string word, vector <string> words){
     return false;
 }
 
-// *** Yuwei: debugCase and wordCase can be merged into one function
 // case 5 where i had to see if the word at hand had word that could be branched off by only changing a letter at time and, then i added those
 // words to another vector and checked if the word entered is of correct length and if its in the original dictionary and if there is no duplicates
 // i kept doing this until i got to the word desired, which was cat, once i got there i ended the function by meeting certain conditional statements
@@ -403,8 +379,6 @@ void debugCase(vector <string> &dictionary, string &startWord, string &endWord, 
 
 }
 
-// *** Yuwei: debugCase and wordCase can be merged into one function
-// *** Yuwei: function parameters also need to be documented.
 //case 6 where its basically case 5 but we only see that the work is done, so no branching.
 void wordCase(vector <string> &dictionary, string &startWord, string &endWord, int lengthOfWordsToUse){
     string word;
@@ -482,9 +456,6 @@ void answerCase(vector <string> &dictionary, string &startWord, string &endWord,
         cout << endl;
     }  
 }
-// *** Yuwei: No more than one blank line between blocks
-
-
 
 //-----------------------------------------------------------------------------------------
 
@@ -499,7 +470,6 @@ int main()
     int menuOption = -1;
     int endIndex;                // User menu option selection
     int startIndex;
-// *** Yuwei: Use camelCase variable names.    
     string Usrword;
     string firstWord;
     string secondWord;
@@ -514,7 +484,6 @@ int main()
     
     //I didnt get time to figure out this part of the program because i was stuck on it and at that time hadnt done case 6 or 7
     //so i decided to hard code it which is not ethical but i didnt want to lose points if i hadnt even started case 6 or 7 
-// *** Yuwei: use function instead of hard coding    
     cout << "Total number of words in dictionary file: " << totNumword << endl;
 
     cout << endl << "Word lengths where there are more than 1400 words: " << endl;
@@ -536,18 +505,13 @@ int main()
     cout << setw(5) << "15" << setw(10) << "5925" << endl;
     cout << setw(5) << "16" << setw(10) << "3377" << endl;
     cout << setw(5) << "17" << setw(10) << "1813" << endl;
-// *** Yuwei: No more than one blank line between blocks
-    
-    
 
     
     // Seed the random number generator
     srand( 1);  // Change 1 to time(0) for non-predictable results, but leave as 1 for testing
 
     // Menu display and handling infinite loop
-    do {
-// *** Yuwei: Inconsistent indentations        
-        
+    do {        
 //         cout << "What length words do you want to use? " << endl
              cout << "\nCurrently we have " << numberOfWords << " words of length "
              << lengthOfWordsToUse << " in the dictionary.  \n"
